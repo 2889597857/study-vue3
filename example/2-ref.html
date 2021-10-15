@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>study-vue-ref</p>
+        <p id="app2"></p>
+
+    </div>
+</body>
+<script src="../packages/reactivity/dist/VueReactivity.global.js"></script>
+<script>
+    const { ref, effect } = VueReactivity
+    const state = ref('123')
+    effect(() => { app2.innerHTML = state.value })
+    setTimeout(() => {
+        state.value = '456'
+    }, 1000);
+</script>
+
+</html>
