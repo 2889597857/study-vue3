@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>study-vue</p>
+        <p id="app2"></p>
+        <p id="app3"></p>
+        <p id="app4"></p>
+    </div>
+</body>
+<script src="../packages/reactivity/dist/VueReactivity.global.js"></script>
+<script>
+    const { reactive, effect, toRef, toRefs } = VueReactivity
+    const state = reactive({
+        name: 'oldValue',
+        list: [0, 1, 2, 3, 4]
+    })
+    const Ref = toRef(state, 'name')
+    console.log(Ref.value)
+    effect(() => {
+        app2.innerHTML = Ref.value
+    })
+    setTimeout(() => {
+        Ref.value = 'new value'
+    }, 1000);
+</script>
+
+</html>

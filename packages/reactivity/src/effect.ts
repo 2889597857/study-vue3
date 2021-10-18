@@ -59,9 +59,10 @@ export function trigger(
 	const depsMap = targetMap.get(target)
 
 	if (!depsMap) return
+
 	// 储存所有要执行的 effect，一起执行
 	const effects = new Set()
-	console.log(target, key, newValue, oldValue)
+
 	const add = (effectToAdd: any) => {
 		if (effectToAdd) {
 			effectToAdd.forEach((effect: unknown) => {
@@ -91,5 +92,11 @@ export function trigger(
 		}
 	}
 
-	effects.forEach((effect: any) => effect())
+	effects.forEach((effect: any) => {
+		if (effect.options.sch) {
+			effect.options.sch(effect)
+		} else {
+			effect()
+		}
+	})
 }

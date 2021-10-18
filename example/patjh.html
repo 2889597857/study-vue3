@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">12312</div>
+    <script>
+        const app = document.querySelector('#app')
+        function pathEvent(el, rawName, nextValue) {
+            // 函数缓存
+            var invokers = el._vei || (el._vei = {});
+            // 获取缓存
+            var existingInvoker = invokers[rawName];
+            // 缓存和新值都有 更新缓存
+            if (existingInvoker && nextValue) {
+                existingInvoker.value = nextValue;
+            }
+            else {
+                //  eventName 事件类型 onClick => click
+                var eventName = rawName.slice(2).toLocaleLowerCase();
+                if (nextValue) {
+                    //  新值存在
+                    var invoker = (invokers[rawName] = createInvoker(nextValue));
+                    addEventListener(el, eventName, invoker);
+                }
+                else if (existingInvoker) {
+
+                    // 缓存清除缓存 移除事件
+                    removeEventListener(el, eventName, existingInvoker);
+                    invokers[rawName] = undefined;
+                }
+            }
+        }
+        function createInvoker(initialValue) {
+            var invoker = function (e) {
+                invoker.value();
+            };
+            invoker.value = initialValue;
+            return invoker;
+        }
+        function addEventListener(el, event, handler, options) {
+            el.addEventListener(event, handler);
+        }
+        function removeEventListener(el, event, handler, options) {
+            el.removeEventListener(event, handler);
+        }
+        function fn1() {
+            console.log('fn1')
+        }
+        function fn2() {
+            console.log('fn2')
+        }
+        pathEvent(app, 'onClick', fn1)
+    </script>
+</body>
+
+</html>

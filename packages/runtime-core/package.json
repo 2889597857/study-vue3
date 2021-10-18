@@ -1,0 +1,13 @@
+{
+	"name": "@vue/runtime-core",
+	"description": "@vue/runtime-core",
+	"version": "1.0.0",
+	"main": "index.js",
+	"buildOptions": {
+		"filename": "VueRuntimeCore",
+		"formats": [
+			"esm-bundler",
+			"global"
+		]
+	}
+}

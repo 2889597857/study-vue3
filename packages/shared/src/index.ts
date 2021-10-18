@@ -9,3 +9,6 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
 export const hasOwn = (val: object, key: string | symbol): key is keyof typeof val =>
 	hasOwnProperty.call(val, key)
 export const hasChanged = (oldValue: any, value: any) => value !== oldValue
+
+const onRE = /^on[^a-z]/
+export const isOn = (key: string) => onRE.test(key)

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge"
+    >
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>vue-next</title>
+</head>
+
+<body>
+    <div
+        id="app"
+        @click="state.a = 123"
+    >{{state.a}}</div>
+
+    </script>
+    <script type="module">
+        import { createApp, ref, reactive, computed } from './vue.js';
+        createApp({
+            setup() {
+                const state = reactive({
+                    a: 123
+                })
+                let a = computed(() => {
+                    console.log(state.a)
+                })
+                console.log(a)
+                console.log(computed)
+                return { state }
+            }
+        }).mount("#app")
+    </script>
+
+</body>
+
+</html>
