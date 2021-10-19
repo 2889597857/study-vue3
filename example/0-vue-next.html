@@ -22,8 +22,8 @@
 
     </script>
     <script type="module">
-        import { createApp, ref, reactive, computed } from './vue.js';
-        createApp({
+        import { createApp, ref, reactive, computed, watch } from './vue.js';
+        window.app = createApp({
             setup() {
                 const state = reactive({
                     a: 123
@@ -31,11 +31,13 @@
                 let a = computed(() => {
                     console.log(state.a)
                 })
-                console.log(a)
                 console.log(computed)
+                console.log(watch)
                 return { state }
             }
         }).mount("#app")
+
+        console.log(createApp({}))
     </script>
 
 </body>

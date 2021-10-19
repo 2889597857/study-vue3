@@ -32,7 +32,7 @@ export function pathEvent(
 
 function createInvoker(initialValue: EventValue) {
 	const invoker: Invoker = (e: Event) => {
-		invoker.value()
+		invoker.value(e)
 	}
 	invoker.value = initialValue
 	return invoker

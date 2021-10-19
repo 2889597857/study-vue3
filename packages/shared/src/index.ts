@@ -1,3 +1,5 @@
+export { ShapeFlags } from './shapeFlags'
+
 export const isObject = (val: unknown) => val !== null && typeof val === 'object'
 export const isArray = Array.isArray
 export const isFunction = (val: unknown): val is Function => typeof val === 'function'
@@ -12,3 +14,4 @@ export const hasChanged = (oldValue: any, value: any) => value !== oldValue
 
 const onRE = /^on[^a-z]/
 export const isOn = (key: string) => onRE.test(key)
+export const extend = Object.assign

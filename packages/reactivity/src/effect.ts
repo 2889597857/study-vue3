@@ -28,7 +28,7 @@ function createReactEffect(fn: Function, options: any = {}) {
 		}
 	}
 	effect.id = effectUid++ // effect 标识，用于区分 不同的effect
-	effect.__isEffect = true // effect 是否是响应式effect
+	effect.__is_effect = true // effect 是否是响应式effect
 	effect.raw = fn // 原始函数
 	effect.options = options // 用户配置
 	return effect

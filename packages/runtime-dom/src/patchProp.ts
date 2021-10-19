@@ -4,7 +4,7 @@ import { patchStyle } from './modules/style'
 import { isOn } from '@vue/shared'
 import { pathEvent } from './modules/event'
 
-export const patchProp = (el: Element, key: string, prevValue: string, nextValue: string) => {
+export const patchProp = (el: Element, key: string, prevValue: string, nextValue: any) => {
 	switch (key) {
 		case 'class':
 			patchClass(el, nextValue)

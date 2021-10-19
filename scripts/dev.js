@@ -16,6 +16,7 @@ async function build (target) {
     )
 }
 build('runtime-dom')
+build('runtime-core')
 
 
 
