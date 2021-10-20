@@ -24,20 +24,18 @@
     <script type="module">
         import { createApp, ref, reactive, computed, watch } from './vue.js';
         window.app = createApp({
-            setup() {
+            setup(props, context) {
+
                 const state = reactive({
                     a: 123
                 })
-                let a = computed(() => {
-                    console.log(state.a)
-                })
-                console.log(computed)
-                console.log(watch)
                 return { state }
+            },
+            render(proxy) {
+                console.log(proxy['$'])
             }
         }).mount("#app")
 
-        console.log(createApp({}))
     </script>
 
 </body>

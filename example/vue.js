@@ -288,9 +288,10 @@ const replacer = (_key, val) => {
     return val;
 };
 
-const EMPTY_OBJ = Object.freeze({})
-    ;
+const EMPTY_OBJ = Object.freeze({});
+
 const EMPTY_ARR = Object.freeze([]);
+
 const NOOP = () => { };
 /**
  * Always return false.

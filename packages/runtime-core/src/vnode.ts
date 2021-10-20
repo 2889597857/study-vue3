@@ -13,6 +13,7 @@ export const createVnode = (type: any, props: any, children = null) => {
 		children,
 		key: props && props.key,
 		el: null,
+		component: {},
 		shapeFlag,
 	}
 	normalizeChildren(vnode, children)

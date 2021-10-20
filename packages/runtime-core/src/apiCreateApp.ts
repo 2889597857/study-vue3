@@ -9,7 +9,6 @@ export function apiCreateApp(render: Function) {
 			mount(container: any) {
 				// 挂载位置
 				let vnode = createVnode(rootComponent, rootProps)
-				console.log(vnode)
 				render(vnode, container)
 				app._container = container
 			},

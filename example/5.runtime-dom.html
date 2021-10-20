@@ -24,8 +24,13 @@
         const { createApp } = VueRuntimeDOM
 
         const App = {
-            render() {
-                console.log(123)
+            setup(props, context) {
+                return () => {
+                    console.log(123)
+                }
+            },
+            render(proxy) {
+                console.log(proxy.name)
             }
         }
         createApp(App, { name: "zs" },).mount("#app")
