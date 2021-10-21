@@ -1,6 +1,6 @@
-import { isArray, isFunction, isObject, isString, ShapeFlags } from '@vue/shared'
+import { isArray, isObject, isString, ShapeFlags } from '@vue/shared'
 
-export const createVnode = (type: any, props: any, children = null) => {
+export const createVNode = (type: any, props: any, children: unknown = null) => {
 	let shapeFlag = isString(type)
 		? ShapeFlags.ELEMENT
 		: isObject(type)
@@ -30,4 +30,8 @@ export function normalizeChildren(vnode: any, children: unknown) {
 	}
 	vnode.children = children
 	vnode.shapeFlag |= type
+}
+
+export function isVNode(vnode: any): boolean {
+	return vnode ? vnode.__v_isVNode === true : false
 }

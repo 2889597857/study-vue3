@@ -11,6 +11,12 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
+    <style>
+        #app {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <title>Document</title>
 </head>
 
@@ -21,16 +27,15 @@
     <div id="app">1232134</div>
     <script src="../packages/runtime-dom/dist/VueRuntimeDOM.global.js"></script>
     <script>
-        const { createApp } = VueRuntimeDOM
-
+        const { createApp, h } = VueRuntimeDOM
         const App = {
             setup(props, context) {
-                return () => {
-                    console.log(123)
-                }
+
             },
             render(proxy) {
-                console.log(proxy.name)
+                // console.log(this)
+                // console.log(proxy)
+                return h('div', { style: { color: 'red' } }, 'hello')
             }
         }
         createApp(App, { name: "zs" },).mount("#app")

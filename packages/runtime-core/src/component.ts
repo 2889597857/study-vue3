@@ -56,8 +56,6 @@ export function handleSetupResult(instance: any, setupResult: unknown) {
 export const finishComponentSetup = (instance: any) => {
 	const Component = instance.type
 	// template / render function normalization
-	console.log(instance.render)
-
 	if (!instance.render) {
 		// could be set from setup()
 		if (!Component.render) {
@@ -67,21 +65,6 @@ export const finishComponentSetup = (instance: any) => {
 		}
 		instance.render = Component.render
 	}
-
-	// warn missing template/render
-	// the runtime compilation of template in SSR is done by server-render
-	// if (!Component.render && instance.render === NOOP && !isSSR) {
-	// 	/* istanbul ignore if */
-	// 	if (!compile && Component.template) {
-	// 		warn$1(
-	// 			`Component provided template option but ` +
-	// 				`runtime compilation is not supported in this build of Vue.` +
-	// 				` Use "vue.esm-browser.js" instead.` /* should not happen */
-	// 		)
-	// 	} else {
-	// 		warn$1(`Component is missing template or render function.`)
-	// 	}
-	// }
 }
 const createContext = (instance: any) => {
 	return {
@@ -91,5 +74,3 @@ const createContext = (instance: any) => {
 		expose: () => {},
 	}
 }
-
-export const setupRenderEffect = () => {}

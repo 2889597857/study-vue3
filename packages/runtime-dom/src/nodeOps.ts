@@ -1,5 +1,4 @@
 const doc = (typeof document !== 'undefined' ? document : null) as Document
-const staticTemplateCache = new Map<string, DocumentFragment>()
 const svgNS = 'http://www.w3.org/2000/svg'
 
 export const nodeOps = {
@@ -16,7 +15,7 @@ export const nodeOps = {
 	},
 	// 插入元素
 	insert: (child: any, parent: any, anchor = null) => {
-		parent.insertBefore(child, anchor || null)
+		parent.insertBefore(child, anchor)
 	},
 	// 删除元素
 	remove: (child: any) => {

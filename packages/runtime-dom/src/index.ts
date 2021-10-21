@@ -15,3 +15,5 @@ export const createApp = (rootComponent: any, rootProps: any) => {
 	}
 	return app
 }
+
+export * from '@vue/runtime-core'

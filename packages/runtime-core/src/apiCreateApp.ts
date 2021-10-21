@@ -1,4 +1,4 @@
-import { createVnode } from './vnode'
+import { createVNode } from './vnode'
 
 export function apiCreateApp(render: Function) {
 	return function createApp(rootComponent: any, rootProps: any) {
@@ -8,7 +8,7 @@ export function apiCreateApp(render: Function) {
 			_container: null,
 			mount(container: any) {
 				// 挂载位置
-				let vnode = createVnode(rootComponent, rootProps)
+				let vnode = createVNode(rootComponent, rootProps)
 				render(vnode, container)
 				app._container = container
 			},
